@@ -11,11 +11,15 @@ const createWindow = () => {
     }
   })
 
+  const contents = win.webContents
+
+  console.log('contents ', contents)
+
   win.loadFile('index.html')
 }
 
 app.whenReady().then(() => {
-  ipcMain.handle('ping', () => console.log('pong'));
+  ipcMain.handle('ping', () => 'pong');
   createWindow()
   
   app.on('activate', () => {
